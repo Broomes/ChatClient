@@ -15,11 +15,20 @@
 </head>
 <body>
     <div class="container">
-
         <div class="head">
-            <a class="navbar-brand" href="#">Broomes Chat</a>
-            <div id="status">Connecting...</div>
+            <div class="row h-100">
+                <div class="col-4 h-100">
+                    <img  class="logo" src='<c:url value="/resources/img/logo.png" />' alt='Broomes Chat Logo' />
+                </div>
+                <div class="col-6 text-center h-100">
+                    <div id="status" class="text-muted h-100">Connecting...</div>
+                </div>
+                <div class="col-2 h-100">
+                    <button type="button" id="close" class="btn btn-danger btn-block close-button">CLOSE</button>
+                </div>
+            </div>
         </div>
+
 
         <div class="content-left">
             <div class="p-3 mb-2 bg-light">
@@ -33,15 +42,12 @@
         <div class="foot">
             <form id="message-form" action="#" method="post">
                 <div class="row">
-                    <div class="col-12">
-                        <textarea class="form-control input-sm " type="textarea" id="message" placeholder="Write your message here..." maxlength="500" rows="3"></textarea>
-                        <span class="help-block"><p id="characterLeft" class="help-block ">You have reached the limit</p></span>
+                    <div class="col-10" style="padding-right: 0px;">
+                        <p id="characterLeft" class="help-block ">You have reached the limit</p>
+                        <input class="form-control input-sm " id="message" placeholder="Write your message here..." maxlength="500" rows="3" />
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-12">
-                        <button type="submit" class="btn btn-primary">SEND</button>
-                        <button type="button" id="close" class="btn btn-danger">CLOSE</button>
+                    <div class="col-2">
+                        <button id="submit-button" type="submit" class="btn btn-primary btn-block">SEND</button>
                     </div>
                 </div>
             </form>

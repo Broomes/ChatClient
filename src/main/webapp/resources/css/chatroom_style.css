@@ -18,11 +18,11 @@ body{
 
 .head{
     background: #3598dc;
-    height: 10%;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
+    bottom: 90%;
 }
 
 .content-left{
@@ -35,7 +35,7 @@ body{
     top: 10%;
     left: 0;
     right: 20%;
-    bottom: 20%;
+    bottom: 12%;
 }
 
 .content-right{
@@ -45,14 +45,41 @@ body{
     top: 10%;
     left: 80%;
     right: 0;
-    bottom: 20%;
+    bottom: 12%;
 }
 
 .foot{
     background: #3598dc;
     position: fixed;
-    height: 20%;
+    height: 12%;
     left: 0;
     right: 0;
     bottom: 0;
+}
+
+#submit-button{
+    height: 100%;
+    width: 100%;
+    padding-left: 0px;
+    padding-top: 1px;
+    padding-right: 15px;
+}
+
+.close-button{
+    height: 100%;
+    width: 100%;
+    padding-left: 0px;
+    padding-top: 1px;
+    padding-right: 1px;
+}
+
+.logo {
+    max-height: 100%;
+    max-width: 100%;
+    padding-top: 1%;
+    padding-left: 2%;
+}
+
+#status{
+    font-size: 1.5rem;
 }

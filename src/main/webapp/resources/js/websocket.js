@@ -1,5 +1,5 @@
 window.onload = function(){
-    var ws = new WebSocket("ws://websocketserver-env.ecyh3rdrdc.us-west-2.elasticbeanstalk.com:8080/chat/" + room + "/" + sender);
+    var ws = new WebSocket("wss://websocket.broomes.net:443/chat/" + room + "/" + sender);
     var form = document.getElementById('message-form');
     var messageField = document.getElementById('message');
     var messageList = document.getElementById('messages');
@@ -8,8 +8,8 @@ window.onload = function(){
     var socketStatus = document.getElementById('status');
 
     ws.onopen = function(event) {
-        socketStatus.innerHTML = 'Connected to Server';
-        socketStatus.className = 'open';
+        socketStatus.innerHTML = 'Connected to: ' + room;
+        socketStatus.className = 'open text-success h-100';
     };
 
     ws.onmessage = function(event) {
@@ -45,7 +45,7 @@ window.onload = function(){
 
     ws.onclose = function() {
         socketStatus.innerHTML = 'Disconnected from server.';
-        socketStatus.className = 'closed';
+        socketStatus.className = 'closed text-danger';
     };
 
     ws.onerror = function (error) {
