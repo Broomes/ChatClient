@@ -14,9 +14,9 @@ In order to use this project, you will have to have access to a websocket server
 1. Setup websocket server either on your local machine or remotely.
 2. Change the ws variable in webapp/resources/js/websocket.js so that is points to your websocket server.
 ```
-var ws = new WebSocket("ws://websocketserver-env.ecyh3rdrdc.us-west-2.elasticbeanstalk.com:8080/chat/" + room + "/" + sender);
+var ws = new WebSocket("wss://websocket.broomes.net:443/chat/" + room + "/" + sender);
 ```
->Note: change the "ws://websocketserver-env.ecyh3rdrdc.us-west-2.elasticbeanstalk.com:8080/chat/" string.
+>Note: change the "wss://websocket.broomes.net:443/chat/" string.
 
 ## Deployment
 
