@@ -14,10 +14,7 @@ public class ChatController {
     }
 
     @GetMapping("chatroom")
-    public String chatroom(@RequestParam String user,
-                           @RequestParam String room,
-                           Model model){
-        model.addAttribute("sender", user);
+    public String chatroom(@RequestParam String room, Model model){
         model.addAttribute("room", room);
         return "chatroom";
     }

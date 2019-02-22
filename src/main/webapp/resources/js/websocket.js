@@ -9,7 +9,7 @@ window.onload = function(){
 
     ws.onopen = function(event) {
         socketStatus.innerHTML = 'Connected to: ' + room;
-        socketStatus.className = 'open text-success h-100';
+        socketStatus.className = 'open';
     };
 
     ws.onmessage = function(event) {
@@ -46,6 +46,7 @@ window.onload = function(){
     ws.onclose = function() {
         socketStatus.innerHTML = 'Disconnected from server.';
         socketStatus.className = 'closed text-danger';
+        window.location.href("https://broomes.net/");
     };
 
     ws.onerror = function (error) {

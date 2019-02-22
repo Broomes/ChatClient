@@ -6,28 +6,29 @@
 <html>
 <head>
     <title>Broomes Chat</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link href="<c:url value="/resources/css/login_style.css" />" rel="stylesheet">
+    <link rel="shortcut icon" href="<c:url value="/resources/img/favicon.ico" />" />
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="<c:url value="/resources/css/index.css" />" rel="stylesheet">
 </head>
 <body>
 
-<div class="login-form">
-    <form action="chatroom" method="get">
-        <h2 class="text-center">Join a chatroom</h2>
-        <div class="form-group has-error">
-            <input type="text" class="form-control" name="user" placeholder="Username" required="required">
-        </div>
-        <div class="form-group">
-            <input type="text" class="form-control" name="room" placeholder="Chatroom" required="required">
-        </div>
-        <div class="form-group">
-            <button type="submit" class="btn btn-primary btn-lg btn-block">Sign in</button>
-        </div>
-    </form>
-</div>
+    <form:form action="${pageContext.request.contextPath}/logout" method="post">
+        <button type="submit" class="btn btn-danger btn-lg">Logout</button>
+    </form:form>
+
+    <div class="login-form">
+        <form:form action="chatroom" method="get">
+            <h2 class="text-center">Join a chatroom</h2>
+            <div class="form-group">
+                <input type="text" class="form-control" name="room" placeholder="Chatroom" required="required">
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-lg btn-block">Join</button>
+            </div>
+        </form:form>
+    </div>
 
 </body>
 </html>
