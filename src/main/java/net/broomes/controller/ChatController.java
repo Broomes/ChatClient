@@ -13,6 +13,11 @@ public class ChatController {
         return "index";
     }
 
+    @GetMapping("main")
+    public String main(){
+        return "main";
+    }
+
     @GetMapping("chatroom")
     public String chatroom(@RequestParam String room, Model model){
         model.addAttribute("room", room);

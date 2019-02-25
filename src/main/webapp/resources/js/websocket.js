@@ -1,4 +1,4 @@
-window.onload = function(){
+function onConnectClick(room){
     var ws = new WebSocket("wss://websocket.broomes.net:443/chat/" + room + "/" + sender);
     var form = document.getElementById('message-form');
     var messageField = document.getElementById('message');
@@ -34,11 +34,11 @@ window.onload = function(){
                 '</blockquote>' + '</li>';
         }
         else{
-            messageList.innerHTML += '<li class="received list-group-item  bg-dark text-white">' +
+            messageList.innerHTML = '<li class="received list-group-item  bg-dark text-white">' +
                 '<blockquote class="blockquote text-right">' +
                 '<p class="mb-0">' + msg.sender + ': ' + msg.content + '</p>' +
                 '<footer class="blockquote-footer text-left">' + msg.time + '</footer>' +
-                '</blockquote>' + '</li>';
+                '</blockquote>' + '</li>' + messageList.innerHTML;
         }
 
     };
@@ -46,7 +46,6 @@ window.onload = function(){
     ws.onclose = function() {
         socketStatus.innerHTML = 'Disconnected from server.';
         socketStatus.className = 'closed text-danger';
-        window.location.href("https://broomes.net/");
     };
 
     ws.onerror = function (error) {
