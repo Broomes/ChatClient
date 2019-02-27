@@ -6,6 +6,9 @@ function onConnectClick(room){
     var userList = document.getElementById('participants');
     var closeBtn = document.getElementById('close');
     var socketStatus = document.getElementById('status');
+    var time = new Date();
+    var hours = time.getHours();
+    var mins = time.getMinutes();
 
     ws.onopen = function(event) {
         socketStatus.innerHTML = 'Connected to: ' + room;
@@ -14,10 +17,10 @@ function onConnectClick(room){
 
     ws.onmessage = function(event) {
         var msg = JSON.parse(event.data);
-
         var activeParticipants = msg.activeUsers;
-
         var userString = "";
+        var hours = time.getHours();
+        var mins = time.getMinutes();
 
         activeParticipants.forEach(function (user) {
             userString += '<li class="received list-group-item  bg-dark text-white">' +
@@ -27,18 +30,36 @@ function onConnectClick(room){
         userList.innerHTML = userString;
 
         if(msg.sender != sender){
-            messageList.innerHTML += '<li class="received list-group-item  bg-dark text-white">' +
-                '<blockquote class="blockquote text-left">' +
-                '<p class="mb-0">' + msg.sender + ': ' + msg.content + '</p>' +
-                '<footer class="blockquote-footer text-right">' + msg.time + '</footer>' +
-                '</blockquote>' + '</li>';
+            messageList.innerHTML = '<li><div class="row w-100 remove-all-margin"><div class="col-2 text-center d-none d-md-block">' +
+                                    '<div class="avatar_container">' +
+                                    '<img alt="user picture" class="avatar_img" src=' + admin_avatar + ' >' +
+                                    '</div></div>'+
+                                    '<div class="col text-center">' +
+                                    '<div class="box chatBubble2">' +
+                                    msg.content +
+                                    '</div>'+
+
+                                    '<p class="text-muted">' + msg.sender + ' ' + hours + ':' + mins + '</p>' +
+
+                                    '</div></div></li>' +
+                                    messageList.innerHTML;
         }
         else{
-            messageList.innerHTML = '<li class="received list-group-item  bg-dark text-white">' +
-                '<blockquote class="blockquote text-right">' +
-                '<p class="mb-0">' + msg.sender + ': ' + msg.content + '</p>' +
-                '<footer class="blockquote-footer text-left">' + msg.time + '</footer>' +
-                '</blockquote>' + '</li>' + messageList.innerHTML;
+            messageList.innerHTML = '<li><div class="row w-100 remove-all-margin">' +
+                                    '<div class="col text-center">' +
+                                        '<div class="box chatBubble1 w-80">' +
+                                            msg.content +
+                                        '</div>'+
+                                    '</div>' +
+                                    '<div class="col-2 text-center d-none d-md-block">' +
+                                        '<div class="avatar_container d-none d-md-block w-20">' +
+                                            '<img alt="user picture" class="avatar_img" src=' + admin_avatar + ' >' +
+                                        '</div>' +
+                                    '</div>' +
+
+                                    '</div>' +
+                                    '</li>' +
+                                    messageList.innerHTML;
         }
 
     };
@@ -46,6 +67,7 @@ function onConnectClick(room){
     ws.onclose = function() {
         socketStatus.innerHTML = 'Disconnected from server.';
         socketStatus.className = 'closed text-danger';
+        messageList.innerHTML = '';
     };
 
     ws.onerror = function (error) {
