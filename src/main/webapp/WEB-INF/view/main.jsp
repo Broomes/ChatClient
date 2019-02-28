@@ -45,25 +45,14 @@
 
     <hr class="divider">
 
+    <div id="serverMessage"></div>
+
     <main role="main">
 
         <!-- ROOM CARDS -->
         <div class="container text-center">
             <div class="row">
                 <ul class="list-inline" id="rooms">
-                        <li class="list-inline-item">
-                            <a onclick="onConnectClick('default')" data-toggle="modal" data-target="#chatRoomModal">
-                            <div class="col-md-6 col-lg-4 col-xl-3">
-                                <div class="card text-white bg-light mb-3 activeCard" style="width: 20rem">
-                                    <div class="card-header">Main</div>
-                                    <div class="card-body text-secondary">
-                                        <p class="card-text">Default chatroom that will stay at the top of everyone's room list.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            </a>
-                        </li>
-
                 </ul>
             </div>
         </div>
@@ -103,7 +92,7 @@
                             <input type="text" id="roomDesc" name="roomDesc" placeholder="room description" class="form-control form-control-lg"  required="" />
                         </div>
                         <div class="text-center">
-                            <button id="submit" type="submit" class="btn btn-primary">CREATE</button>
+                            <button id="submit" type="submit" class="btn btn-block btn-primary">CREATE</button>
                         </div>
                     </form:form>
                 </div>
