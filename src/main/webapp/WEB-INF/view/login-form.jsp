@@ -30,14 +30,17 @@
             </div>
         </c:if>
 
-        <label class="sr-only">Username</label>
-        <input type="text" name="username" class="form-control" placeholder="Username" required="" autofocus="">
-        <label class="sr-only">Password</label>
-        <input type="password" name="password" class="form-control" placeholder="Password" required="">
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-        <div class="alert alert-light" role="alert">
-            <a href="#" class="alert-link">New user? Click here to register.</a>
+        <div class="form-group">
+            <input type="text" name="username" class="form-control form-control-lg" placeholder="Username" required="" autofocus="">
         </div>
+        <div class="form-group">
+            <input type="password" name="password" class="form-control form-control-lg" placeholder="Password" required="">
+        </div>
+        <div class="form-group" style="display: inline-block">
+            <label class="form-check-label">Remember Me?</label>
+            <input id="remember" type="checkbox" name="remember-me" value="true" />
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
     </form:form>
 
 </body>
