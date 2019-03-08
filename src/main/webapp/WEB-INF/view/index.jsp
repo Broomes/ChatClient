@@ -181,33 +181,28 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form:form action="register" method="post" modelAttribute="user">
-                    <c:if test="${registered==true}">
-                        <div class="alert alert-success" role="alert">
-                            Registration Complete
-                        </div>
-                    </c:if>
-                    <c:if test="${registered==false}">
-                        <div class="alert alert-danger" role="alert">
-                            Username have already been taken
-                        </div>
-                    </c:if>
+                <div id="registrationAlertMessage">
+                </div>
+                <form:form id="userRegistrationForm"  method="post" enctype="multipart/form-data">
+                    <input type="file"
+                           id="avatar" name="avatar"
+                           accept="image/png, image/jpeg">
                     <div class="form-group">
                         <label class="form-text text-muted">Username</label>
-                        <form:input path="username" type="text" placeholder="username" class="form-control form-control-lg"/>
+                        <input id="username" name="username" type="text" placeholder="username" class="form-control form-control-lg"/>
                     </div>
                     <div class="form-group">
                         <label class="form-text text-muted">Password</label>
-                        <form:input path="password" type="password" placeholder="password"
+                        <input id="password" name="password" type="password" placeholder="password"
                                class="form-control form-control-lg"/>
                     </div>
-                    <div class="form-group">
-                        <label class="form-text text-muted">Confirm Password</label>
-                        <input type="password" name="password" placeholder="confirm password"
-                               class="form-control form-control-lg"/>
-                    </div>
+                    <%--<div class="form-group">--%>
+                        <%--<label class="form-text text-muted">Confirm Password</label>--%>
+                        <%--<input type="password" name="password" placeholder="confirm password"--%>
+                               <%--class="form-control form-control-lg"/>--%>
+                    <%--</div>--%>
                     <div class="text-center">
-                        <button type="submit" class="btn btn-primary">SIGN UP</button>
+                        <button id="submit" type="submit" class="btn btn-primary">SIGN UP</button>
                     </div>
                 </form:form>
             </div>
@@ -217,10 +212,10 @@
 <!--========== End Modals ===============-->
 
 <!-- Bootstrap core JavaScript
-  ================================================== -->
+       ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+<script src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
         crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
         integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
@@ -229,12 +224,7 @@
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
 
-<%-- Script to re-open user registration modal after registration reload --%>
-<c:if test="${registered != null}">
-    <script>
-        $('#signupModal').modal('show');
-    </script>
-</c:if>
+<script src="<c:url value="/resources/js/index.js" />" type = "text/javascript"></script>
 
 </body>
 
