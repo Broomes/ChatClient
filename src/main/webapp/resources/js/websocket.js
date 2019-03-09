@@ -1,3 +1,5 @@
+var apiURL = 'https://broomes.net/chatapi/api';
+
 function onConnectClick(room){
     var ws = new WebSocket("wss://websocket.broomes.net:443/chat/" + room + "/" + sender);
     var form = document.getElementById('message-form');
@@ -23,19 +25,31 @@ function onConnectClick(room){
         var mins = time.getMinutes();
 
         activeParticipants.forEach(function (user) {
-            userString += '<li class="received list-group-item  bg-dark text-white">' +
-                '<p class="mb-0">' + user + '</p>' + '</li>';
+            userString += '<li class="received" style="padding-top: 2%">' +
+
+                '<table><tbody><tr>' +
+
+                '<td style="width:40%; padding:.5rem;"><div class="avatar_container d-none d-md-block">' +
+                '<img alt="user picture" class="avatar_img" src=' + apiURL + '/profile/' + user + ' >' +
+                '</div></td>' +
+
+                '<td class="text-left">' +
+                '<span class="mb-0">' + user + '</span>' +
+                '</td>' +
+
+                '</tr></tbody></table>' +
+                 '</li>';
         });
 
         userList.innerHTML = userString;
 
         if(msg.sender != sender){
-            messageList.innerHTML = '<li><div class="row w-100 remove-all-margin"><div class="col-2 text-center d-none d-md-block">' +
-                                    '<div class="avatar_container">' +
-                                    '<img alt="user picture" class="avatar_img" src=' + admin_avatar + ' >' +
+            messageList.innerHTML = '<li style="padding-top: 2%"><div class="row w-100 remove-all-margin"><div class="col-2 text-center d-none d-md-block">' +
+                                    '<div class="avatar_container d-none d-md-block w-20">' +
+                                        '<img alt="user picture" class="avatar_img" src=' + admin_avatar + ' >' +
                                     '</div></div>'+
                                     '<div class="col text-center">' +
-                                    '<div class="box chatBubble2">' +
+                                    '<div class="box2 chatBubble2 w-80">' +
                                     msg.content +
                                     '</div>'+
 
@@ -45,15 +59,16 @@ function onConnectClick(room){
                                     messageList.innerHTML;
         }
         else{
-            messageList.innerHTML = '<li><div class="row w-100 remove-all-margin">' +
+            messageList.innerHTML = '<li style="padding-top: 2%"><div class="row w-100 remove-all-margin">' +
                                     '<div class="col text-center">' +
-                                        '<div class="box chatBubble1 w-80">' +
+                                        '<div class="box1 chatBubble1 w-80">' +
                                             msg.content +
                                         '</div>'+
+                                      '<p class="text-muted">You</p>' +
                                     '</div>' +
                                     '<div class="col-2 text-center d-none d-md-block">' +
                                         '<div class="avatar_container d-none d-md-block w-20">' +
-                                            '<img alt="user picture" class="avatar_img" src=' + admin_avatar + ' >' +
+                                            '<img alt="user picture" class="avatar_img" src=' + apiURL + '/profile/' + sender + ' >' +
                                         '</div>' +
                                     '</div>' +
 
@@ -61,7 +76,6 @@ function onConnectClick(room){
                                     '</li>' +
                                     messageList.innerHTML;
         }
-
     };
 
     ws.onclose = function() {

@@ -46,26 +46,40 @@ header .container {
     position: relative;
     overflow: hidden;
     border-radius: 50%;
-    height: 6rem;
-    width: auto;
+    height: 100%;
+    width: 100%;
 }
 .avatar_img {
-    margin: 0 auto;
     height: 100%;
-    width: auto;
+    width: 100%;
 }
 
-.box {
+.box1 {
     margin-left: 0.5rem;
     margin-right: 0.5rem;
     margin-top: 0.5rem;
-    background: #00bfb6;
+    background: #007bff80;
     padding: 1rem;
     text-align: center;
     font-weight: 900;
     color: #fff;
     font-family: arial;
     position:relative;
+    min-height: 68%;
+}
+
+.box2 {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    margin-top: 0.5rem;
+    background: #007bffe0;
+    padding: 1rem;
+    text-align: center;
+    font-weight: 900;
+    color: #fff;
+    font-family: arial;
+    position:relative;
+    min-height: 68%;
 }
 
 .chatBubble1:before {
@@ -73,11 +87,11 @@ header .container {
     width: 0;
     height: 0;
     position: absolute;
-    border-left: 10px solid #00bfb6;
+    border-left: 10px solid #007bff80;
     border-right: 10px solid transparent;
-    border-top: 10px solid #00bfb6;
+    border-top: 10px solid #007bff80;
     border-bottom: 10px solid transparent;
-    right: -19px;
+    right: -20px;
     top: 6px;
 }
 .chatBubble2:before {
@@ -86,10 +100,10 @@ header .container {
     height: 0;
     position: absolute;
     border-left: 10px solid transparent;
-    border-right: 10px solid #00bfb6;
-    border-top: 10px solid #00bfb6;
+    border-right: 10px solid #007bffe0;
+    border-top: 10px solid #007bffe0;
     border-bottom: 10px solid transparent;
-    left: -19px;
+    left: -20px;
     top: 6px;
 }
 /* /chat bubbles */

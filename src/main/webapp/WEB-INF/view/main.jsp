@@ -124,6 +124,12 @@
                         <tr class="w-100">
                             <td class="w-80">
                                 <small id="characterLeft" class="form-text text-muted">You have reached the limit</small>
+                            </td>
+                            <td class="w-20">
+                            </td>
+                        </tr>
+                        <tr class="w-100">
+                            <td class="w-80">
                                 <input class="form-control form-control-lg" id="message" placeholder="Write your message here..." maxlength="500" autofocus="" />
                             </td>
                             <td class="w-20">

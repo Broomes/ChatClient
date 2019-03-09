@@ -184,9 +184,20 @@
                 <div id="registrationAlertMessage">
                 </div>
                 <form:form id="userRegistrationForm"  method="post" enctype="multipart/form-data">
-                    <input type="file"
-                           id="avatar" name="avatar"
-                           accept="image/png, image/jpeg">
+
+                    <div class="container text-center">
+                        <h5>Set Profile Picture</h5>
+                        <div class="avatar-upload">
+                            <div class="avatar-edit">
+                                <input type='file' id="avatar" name="avatar" accept=".png, .jpg, .jpeg, image/png, image/jpeg" />
+                                <label for="avatar"></label>
+                            </div>
+                            <div class="avatar-preview">
+                                <div id="imagePreview" style="background-image: url(<c:url value='/resources/img/basic_avatar.jpg' />);">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="form-group">
                         <label class="form-text text-muted">Username</label>
                         <input id="username" name="username" type="text" placeholder="username" class="form-control form-control-lg"/>
@@ -196,11 +207,11 @@
                         <input id="password" name="password" type="password" placeholder="password"
                                class="form-control form-control-lg"/>
                     </div>
-                    <%--<div class="form-group">--%>
-                        <%--<label class="form-text text-muted">Confirm Password</label>--%>
-                        <%--<input type="password" name="password" placeholder="confirm password"--%>
-                               <%--class="form-control form-control-lg"/>--%>
-                    <%--</div>--%>
+                    <div class="form-group">
+                        <label class="form-text text-muted">Confirm Password</label>
+                        <input type="password" name="confirmPassword" placeholder="confirm password"
+                               class="form-control form-control-lg"/>
+                    </div>
                     <div class="text-center">
                         <button id="submit" type="submit" class="btn btn-primary">SIGN UP</button>
                     </div>
