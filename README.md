@@ -4,9 +4,9 @@ Frontend for basic chat website that communicates via a websocket backend.
 
 ### Prerequisites
 
-Java JDK 7 or higher
-Tomcat 8 or higher
-Access to a Websocket server that accepts and broadcasts messages in JSON format (local or remote)
+* Java JDK 7 or higher
+* Tomcat 8 or higher
+* Access to a Websocket server that accepts and broadcasts messages in JSON format (local or remote)
 
 ### Setup
 
@@ -31,6 +31,7 @@ mvn clean install
 ## Built With
 
 * [Spring MVC](https://spring.io/docs/) - The web framework used
+* [Spring Security](https://spring.io/projects/spring-security) - User authentication
 * [Maven](https://maven.apache.org/) - Dependency Management
 
 ## Authors
