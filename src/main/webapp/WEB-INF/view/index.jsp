@@ -61,7 +61,7 @@
                 <h2 class="feature-heading">Created using: <span class="text-muted">JSP, Javascript, Spring Security...</span>
                 </h2>
                 <p class="lead">This site was created using Java and the Spring MVC framework. Spring Security is used to handle user registration
-                    and authentication. JSP pages that utilize CSS and Javascript is used for the frontend view. JQuery used for easier code readability.
+                    and authentication. JSP pages that utilize CSS and Javascript are used for the frontend view. JQuery used for easier code readability.
                 </p>
                 <p><a href="https://github.com/Broomes/ChatServer" style="text-decoration: none"><img src="<c:url value="/resources/img/GitHub_image.png" />"> Websocket source code</a></p>
                 <p><a href="https://github.com/Broomes/ChatAPI" style="text-decoration: none"><img src="<c:url value="/resources/img/GitHub_image.png" />"> Rest API source code</a></p>
@@ -78,8 +78,8 @@
         <div class="row">
             <div class="col-md-7">
                 <h2 class="feature-heading">Server setup: <span class="text-muted">Tomcat on AWS EC2 and MySQL AWS RDS</span></h2>
-                <p class="lead">The project run on AWS services. The Websocket server resides on one EC2 instance running Apache Tomcat 8. The Rest API and
-                frontend reside on a shared EC2 Tomcat instance. Both instances have their own AWS load-balancers supporting HTTPS and TCP/SSL respectively.
+                <p class="lead">This project is run on AWS services. The Websocket server resides on one EC2 instance running Apache Tomcat 8. The Rest API and
+                frontend reside on a shared EC2 Tomcat instance. Both instances have their own AWS Elastic Load Balancers supporting HTTPS and TCP/SSL  security respectively.
                 The database is a MySQL AWS RDS.</p>
             </div>
             <div class="col-md-5">
