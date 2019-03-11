@@ -62,8 +62,18 @@
 
         <!-- FOOTER -->
         <footer class="container">
-            <p class="float-right"><a href="#">Back to top</a></p>
-            <p>©2019 broomes.net</p>
+            <div class="row">
+                <div class="col-4 text-left">
+                    <p><a href="#">Back to top</a></p>
+                </div>
+                <div class="col-4 text-center">
+                    <a href="https://github.com/Broomes" style="text-decoration: none"><img src="<c:url value='/resources/img/GitHub_bottom.png' />" style="height: 2rem;"></a>
+                    <a href="https://www.linkedin.com/in/broomes" style="text-decoration: none"><img src="<c:url value='/resources/img/linkedin_bottom.png' />" style="height: 2rem;"></a>
+                </div>
+                <div class="col-4 text-right">
+                    <p>©2019 broomes.net</p>
+                </div>
+            </div>
         </footer>
         <!-- /FOOTER -->
 
@@ -86,13 +96,15 @@
                         <span id="roomCreatedResponse"></span>
 
                         <div class="form-group">
-                            <label class="sr-only">Room Name</label>
+                            <label class="form-text text-muted">Room Name</label>
                             <input type="text" id="roomName" name="roomName" placeholder="room name" class="form-control form-control-lg" required="" autofocus="" />
-                            <label class="sr-only">Description</label>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-text text-muted">Description</label>
                             <input type="text" id="roomDesc" name="roomDesc" placeholder="room description" class="form-control form-control-lg"  required="" />
                         </div>
                         <div class="text-center">
-                            <button id="submit" type="submit" class="btn btn-block btn-primary">CREATE</button>
+                            <button id="submit" type="submit" class="btn btn-primary">CREATE</button>
                         </div>
                     </form:form>
                 </div>
@@ -158,7 +170,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
             integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
             crossorigin="anonymous"></script>
-    <script src="<c:url value="/resources/js/chatroom.js" />" type = "text/javascript"></script>
+    <script src="<c:url value="/resources/js/main.js" />" type = "text/javascript"></script>
 
     <script src="<c:url value="/resources/js/websocket.js" />" type = "text/javascript"></script>
 

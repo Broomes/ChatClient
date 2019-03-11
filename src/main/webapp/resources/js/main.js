@@ -36,64 +36,59 @@ $('#createRoomForm').submit(function(e){
         '}';
 
     $.ajax({
-        type: 'PUT',
+        type: 'POST',
         contentType: "application/json",
         dataType: "json",
         url: apiURL + '/room',
         data: data,
         statusCode: {
-            400: function() {
+            400: function(response) {
                 roomCreatedResponse.innerHTML = '<div class="alert alert-danger" role="alert">' +
-                    'Room already exists' +
+                    response.responseText +
                     '</div>';
             },
 
-            200: function() {
+            200: function(response) {
                 serverMessage.innerHTML = '<div class="alert alert-success" role="alert">' +
-                    'Room: ' + roomName + ' created' +
+                    response.responseText +
                     '</div>';
                 getRooms();
                 $('#createRoomModal').modal('hide');
                 document.getElementById("createRoomForm").reset();
+                setTimeout(fade_out, 4000);
             }
-
         }
-    })
+    });
 });
 
 //get and display list of rooms
 function getRooms() {
-    var allRoomCards = '<li class="list-inline-item">' +
-        '<div class="col-md-6 col-lg-4 col-xl-3\">' +
-        '<div class="card text-white bg-primary mb-3" style="width: 20rem">' +
-        '<div class="card-header">Main</div>' +
-        '<a onclick="onConnectClick(&quot;Main&quot;)" data-toggle="modal" data-target="#chatRoomModal">' +
-        '<div class="card-body">' +
-        '<p class="card-text">Main meeting room that is always open.</p>' +
-        '</div></a></div></div></li>';
+    var allRoomCards = '';
 
     $.ajax({
         type: 'GET',
         url: apiURL + '/rooms',
         dataType: 'json',
-        success: function (response) {
-            response.forEach(function (room) {
-                allRoomCards += '<li class="list-inline-item">' +
-                    '<div class="col-md-6 col-lg-4 col-xl-3\">' +
-                    '<div class="card text-white bg-primary mb-3" style="width: 20rem">' +
-                    '<div class="card-header">' + room.roomName +
+        statusCode: {
+            200: function (response) {
+                response.forEach(function (room) {
+                    allRoomCards += '<li class="list-inline-item">' +
+                        '<div class="col-md-6 col-lg-4 col-xl-3\">' +
+                        '<div class="card text-white bg-primary mb-3" style="width: 20rem">' +
+                        '<div class="card-header">' + room.roomName +
 
-                    '<button type="button" class="close" id="delete" onclick="deleteRoom(&quot;' + room.roomName + '&quot;)">' +
-                    '<span aria-hidden="true">&times;</span>' +
-                    '</button>' +
+                        '<button type="button" class="close" id="delete" onclick="deleteRoom(&quot;' + room.roomName + '&quot;)">' +
+                        '<span aria-hidden="true">&times;</span>' +
+                        '</button>' +
 
-                    '</div>' +
-                    '<a onclick="onConnectClick(&quot;' + room.roomName + '&quot;)" data-toggle="modal" data-target="#chatRoomModal">' +
-                    '<div class="card-body">' +
-                    '<p class="card-text">' + room.roomDesc + '</p>' +
-                    '</div></a></div></div></li>';
-            });
-            rooms.innerHTML = allRoomCards;
+                        '</div>' +
+                        '<a onclick="onConnectClick(&quot;' + room.roomName + '&quot;)" data-toggle="modal" data-target="#chatRoomModal">' +
+                        '<div class="card-body">' +
+                        '<p class="card-text">' + room.roomDesc + '</p>' +
+                        '</div></a></div></div></li>';
+                });
+                rooms.innerHTML = allRoomCards;
+            }
         }
     });
 }
@@ -125,4 +120,8 @@ function deleteRoom(room) {
             }
         }
     })
+}
+
+function fade_out() {
+    $("#serverMessage").fadeOut().empty();
 }

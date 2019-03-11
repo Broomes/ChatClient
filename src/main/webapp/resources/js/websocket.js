@@ -43,38 +43,56 @@ function onConnectClick(room){
 
         userList.innerHTML = userString;
 
-        if(msg.sender != sender){
-            messageList.innerHTML = '<li style="padding-top: 2%"><div class="row w-100 remove-all-margin"><div class="col-2 text-center d-none d-md-block">' +
-                                    '<div class="avatar_container d-none d-md-block w-20">' +
-                                        '<img alt="user picture" class="avatar_img" src=' + admin_avatar + ' >' +
-                                    '</div></div>'+
-                                    '<div class="col text-center">' +
-                                    '<div class="box2 chatBubble2 w-80">' +
-                                    msg.content +
-                                    '</div>'+
+        switch (msg.sender) {
+            case 'Chatroom Admin':
+                messageList.innerHTML = '<li style="padding-top: 2%"><div class="row w-100 remove-all-margin"><div class="col-2 text-center d-none d-md-block">' +
+                    '<div class="avatar_container d-none d-md-block w-20">' +
+                    '<img alt="user picture" class="avatar_img" src=' + admin_avatar + ' >' +
+                    '</div></div>'+
+                    '<div class="col-10 text-center">' +
+                    '<div class="box2 chatBubble2 w-80">' +
+                    msg.content +
+                    '</div>'+
 
-                                    '<p class="text-muted">' + msg.sender + ' ' + hours + ':' + mins + '</p>' +
+                    '<p class="text-muted">' + msg.sender + ' ' + hours + ':' + mins + '</p>' +
 
-                                    '</div></div></li>' +
-                                    messageList.innerHTML;
-        }
-        else{
-            messageList.innerHTML = '<li style="padding-top: 2%"><div class="row w-100 remove-all-margin">' +
-                                    '<div class="col text-center">' +
-                                        '<div class="box1 chatBubble1 w-80">' +
-                                            msg.content +
-                                        '</div>'+
-                                      '<p class="text-muted">You</p>' +
-                                    '</div>' +
-                                    '<div class="col-2 text-center d-none d-md-block">' +
-                                        '<div class="avatar_container d-none d-md-block w-20">' +
-                                            '<img alt="user picture" class="avatar_img" src=' + apiURL + '/profile/' + sender + ' >' +
-                                        '</div>' +
-                                    '</div>' +
+                    '</div></div></li>' +
+                    messageList.innerHTML;
+                break;
 
-                                    '</div>' +
-                                    '</li>' +
-                                    messageList.innerHTML;
+            case sender:
+                messageList.innerHTML = '<li style="padding-top: 2%"><div class="row w-100 remove-all-margin">' +
+                    '<div class="col-10 text-center">' +
+                    '<div class="box1 chatBubble1 w-80">' +
+                    msg.content +
+                    '</div>'+
+                    '<p class="text-muted">You</p>' +
+                    '</div>' +
+                    '<div class="col-2 text-center d-none d-md-block">' +
+                    '<div class="avatar_container d-none d-md-block w-20">' +
+                    '<img alt="user picture" class="avatar_img" src=' + apiURL + '/profile/' + sender + ' >' +
+                    '</div>' +
+                    '</div>' +
+
+                    '</div>' +
+                    '</li>' +
+                    messageList.innerHTML;
+                break;
+
+            default:
+                messageList.innerHTML = '<li style="padding-top: 2%"><div class="row w-100 remove-all-margin"><div class="col-2 text-center d-none d-md-block">' +
+                    '<div class="avatar_container d-none d-md-block w-20">' +
+                    '<img alt="user picture" class="avatar_img" src=' + apiURL + '/profile/' + msg.sender + ' >' +
+                    '</div></div>'+
+                    '<div class="col-10 text-center">' +
+                    '<div class="box2 chatBubble2 w-80">' +
+                    msg.content +
+                    '</div>'+
+
+                    '<p class="text-muted">' + msg.sender + ' ' + hours + ':' + mins + '</p>' +
+
+                    '</div></div></li>' +
+                    messageList.innerHTML;
         }
     };
 

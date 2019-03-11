@@ -45,17 +45,17 @@ header .overlay {
 }
 
 
-/* MARKETING CONTENT
+/* PROJECT CONTENT
 -------------------------------------------------- */
 
-.marketing .col-lg-4 {
+.project .col-lg-4 {
     margin-bottom: 1.5rem;
     text-align: center;
 }
-.marketing h2 {
+.project h2 {
     font-weight: 400;
 }
-.marketing .col-lg-4 p {
+.project .col-lg-4 p {
     margin-right: .75rem;
     margin-left: .75rem;
 }
@@ -68,7 +68,6 @@ header .overlay {
     margin: 3rem 0; /* Space out the Bootstrap <hr> more */
 }
 
-/* Thin out the marketing headings */
 .feature-heading {
     font-weight: 300;
     line-height: 1;
@@ -161,4 +160,25 @@ header .overlay {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+}
+
+/* Loading Animation
+-------------------------------------------------*/
+.registrationFormContainer{
+    display: block;
+}
+.loadingAnimation {
+    display: none;
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+    margin: 36%;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }

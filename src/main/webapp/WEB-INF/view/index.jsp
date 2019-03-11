@@ -51,20 +51,21 @@
 
 <main role="main">
 
-    <!-- MARKETING -->
-    <div class="container marketing">
+    <!-- Project Content -->
+    <div class="container project">
 
         <hr class="feature-divider">
 
         <div class="row">
             <div class="col-md-7">
-                <h2 class="feature-heading">First feature heading. <span class="text-muted">It'll blow your mind.</span>
+                <h2 class="feature-heading">Created using: <span class="text-muted">JSP, Javascript, Spring Security...</span>
                 </h2>
-                <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis
-                    euismod
-                    semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac
-                    cursus
-                    commodo.</p>
+                <p class="lead">This site was created using Java and the Spring MVC framework. Spring Security is used to handle user registration
+                    and authentication. JSP pages that utilize CSS and Javascript is used for the frontend view. JQuery used for easier code readability.
+                </p>
+                <p><a href="https://github.com/Broomes/ChatServer" style="text-decoration: none"><img src="<c:url value="/resources/img/GitHub_image.png" />"> Websocket source code</a></p>
+                <p><a href="https://github.com/Broomes/ChatAPI" style="text-decoration: none"><img src="<c:url value="/resources/img/GitHub_image.png" />"> Rest API source code</a></p>
+                <p><a href="https://github.com/Broomes/ChatClient" style="text-decoration: none"><img src="<c:url value="/resources/img/GitHub_image.png" />"> Frontend source code</a></p>
             </div>
             <div class="col-md-5">
                 <img class="feature-image img-fluid mx-auto" alt="Coder's monitor"
@@ -75,31 +76,11 @@
         <hr class="feature-divider">
 
         <div class="row">
-            <div class="col-md-7 order-md-2">
-                <h2 class="feature-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span>
-                </h2>
-                <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis
-                    euismod
-                    semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac
-                    cursus
-                    commodo.</p>
-            </div>
-            <div class="col-md-5 order-md-1">
-                <img class="feature-image img-fluid mx-auto" alt="Networking image"
-                     src="<c:url value='/resources/img/network-image.png' />">
-            </div>
-        </div>
-
-        <hr class="feature-divider">
-
-        <div class="row">
             <div class="col-md-7">
-                <h2 class="feature-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
-                <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis
-                    euismod
-                    semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac
-                    cursus
-                    commodo.</p>
+                <h2 class="feature-heading">Server setup: <span class="text-muted">Tomcat on AWS EC2 and MySQL AWS RDS</span></h2>
+                <p class="lead">The project run on AWS services. The Websocket server resides on one EC2 instance running Apache Tomcat 8. The Rest API and
+                frontend reside on a shared EC2 Tomcat instance. Both instances have their own AWS load-balancers supporting HTTPS and TCP/SSL respectively.
+                The database is a MySQL AWS RDS.</p>
             </div>
             <div class="col-md-5">
                 <img class="feature-image img-fluid mx-auto" alt="AWS diagram"
@@ -109,13 +90,23 @@
 
         <hr class="feature-divider">
 
-    </div><!-- /MARKETING -->
+    </div><!-- /Project Content -->
 
 
     <!-- FOOTER -->
     <footer class="container">
-        <p class="float-right"><a href="#">Back to top</a></p>
-        <p>©2019 broomes.net</p>
+        <div class="row">
+            <div class="col-4 text-left">
+                <p><a href="#">Back to top</a></p>
+            </div>
+            <div class="col-4 text-center">
+                <a href="https://github.com/Broomes" style="text-decoration: none"><img src="<c:url value='/resources/img/GitHub_bottom.png' />" style="height: 2rem;"></a>
+                <a href="https://www.linkedin.com/in/broomes" style="text-decoration: none"><img src="<c:url value='/resources/img/linkedin_bottom.png' />" style="height: 2rem;"></a>
+            </div>
+            <div class="col-4 text-right">
+                <p>©2019 broomes.net</p>
+            </div>
+        </div>
     </footer>
     <!-- /FOOTER -->
 
@@ -181,6 +172,8 @@
                 </button>
             </div>
             <div class="modal-body">
+                <div class="loadingAnimation" id="loadingAnimation"></div>
+                <div id="registrationFormContainer">
                 <div id="registrationAlertMessage">
                 </div>
                 <form:form id="userRegistrationForm"  method="post" enctype="multipart/form-data">
@@ -216,6 +209,7 @@
                         <button id="submit" type="submit" class="btn btn-primary">SIGN UP</button>
                     </div>
                 </form:form>
+                </div>
             </div>
         </div>
     </div>

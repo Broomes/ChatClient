@@ -66,6 +66,7 @@ header .container {
     font-family: arial;
     position:relative;
     min-height: 68%;
+    word-wrap: break-word;
 }
 
 .box2 {
@@ -80,6 +81,7 @@ header .container {
     font-family: arial;
     position:relative;
     min-height: 68%;
+    word-wrap: break-word;
 }
 
 .chatBubble1:before {
@@ -115,10 +117,6 @@ header .container {
 .modal-dialog{
     overflow-y: initial !important;
 }
-
-/*.modal-content{*/
-    /*width: 89vw !important;*/
-/*}*/
 
 #message-area{
     position: relative;

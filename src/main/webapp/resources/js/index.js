@@ -1,13 +1,19 @@
 var apiURL = 'https://broomes.net/chatapi/api';
 var registrationAlertMessage = document.getElementById('registrationAlertMessage');
+var registrationFormContainer = document.getElementById("registrationFormContainer");
+var registrationForm = document.getElementById('userRegistrationForm');
+var loadingAnimation = document.getElementById("loadingAnimation");
 
 $('#userRegistrationForm').submit(function(e){
     e.preventDefault();
 
-    var registrationForm = document.getElementById("userRegistrationForm");
+    // Loading animation
+    registrationFormContainer.style.display="none";
+    loadingAnimation.style.display="block";
+
     var data = new FormData(registrationForm);
 
-    if(document.getElementById("avatar").value === "") {
+    if(document.getElementById("avatar").files.length === 0) {
         data.set("avatar", null);
     }
 
@@ -19,13 +25,17 @@ $('#userRegistrationForm').submit(function(e){
         contentType: false,
         data: data,
         statusCode: {
-            208: function () {
+            400: function(response) {
+                loadingAnimation.style.display="none";
+                registrationFormContainer.style.display="block";
                 registrationAlertMessage.innerHTML = '<div class="alert alert-danger" role="alert">' +
-                    'Username have already been taken' +
+                    response.responseText +
                     '</div>';
             },
 
-            200: function () {
+            200: function() {
+                loadingAnimation.style.display="none";
+                registrationFormContainer.style.display="block";
                 registrationAlertMessage.innerHTML = '<div class="alert alert-success" role="alert">' +
                     'Registration Complete' +
                     '</div>';
